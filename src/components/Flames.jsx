@@ -4,6 +4,7 @@ const Flames = () => {
     const [name1, setName1] = useState("");
     const [name2, setName2] = useState("");
     const [relationship, setRelationship] = useState("");
+    const relations = ['Siblings', 'Friends', 'Love', 'Affection', 'Marriage', 'Enemy'];
 
     function setFire()
     {
@@ -12,32 +13,16 @@ const Flames = () => {
             setRelationship('Please Enter valid input');
             return;
         }
-        const letters1 = new Set(name1);
-        const letters2 = new Set(name2);
-        const total = letters1.union(letters2).size;
-        letters1.clear();
-        letters2.clear();
 
-        switch(total % 6)
+        const letters = new Set(name1);
+        for(let i = 0; i < name2.length; i++)
         {
-            case 0:
-                setRelationship('Siblings');
-                break;
-            case 1:
-                setRelationship('Friends');
-                break;
-            case 2:
-                setRelationship('Love');
-                break;
-            case 3:
-                setRelationship('Affection');
-                break;
-            case 4:
-                setRelationship('Marriage');
-                break;
-            case 5:
-                setRelationship('Enemy');
+            letters.add(name2[i]);
         }
+        const total = letters.size;
+        letters.clear();
+
+        setRelationship(relations[total % 6]);
     }
 
     return (

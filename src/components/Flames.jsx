@@ -45,10 +45,10 @@ const Flames = () => {
             <form action="#" method="post" onSubmit={(e) => {
                 e.preventDefault();
             }}>
-                <input type="text" value={name1} id="name1" data-testid='input1' onChange={(e) => {
+                <input type="text" value={name1} name="name1" data-testid='input1' onChange={(e) => {
                     setName1(e.target.value);
                 }}/>
-                <input type="text" value={name2} id="name2" data-testid='input2' onChange={(e) => {
+                <input type="text" value={name2} name="name2" data-testid='input2' onChange={(e) => {
                     setName2(e.target.value);
                 }}/>
 
